@@ -20,4 +20,4 @@ app.use(cookieParser());
 
 app.use('/api/users',userRoutes);
 
-app.listen(port, () => console.log(`server running on port: ${port}`));
+app.listen(port, () => console.log(`server running on port: ${port} 🏃‍♂️`));
