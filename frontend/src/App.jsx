@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Logo from "./components/Logo";
 import Navigation from "./pages/Auth/Navigation";
 
 function App() {
@@ -9,6 +10,12 @@ function App() {
       <ToastContainer />
       <Navigation />
       <main className="py-3">
+        <Logo
+          src="/src/assets/ex-white.png"
+          alt="Logo"
+          className=" flex items-center justify-center h-20"
+        />
+        <hr></hr>
         <Outlet />
       </main>
     </>

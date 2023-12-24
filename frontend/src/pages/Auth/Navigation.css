@@ -33,5 +33,6 @@
   #navigation-container:hover .search-icon {
     display: none;
     transition: opacity 0.2s ease-in-out; /* Add opacity transition */
+    
   }
   

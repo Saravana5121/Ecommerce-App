@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLoginMutation } from "../../redux/api/usersApiSlice";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
+import Loader from "../../components/Loader";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ const Login = () => {
   return (
     <div>
       <section className="pl-[20rem] flex flex-wrap">
-        <div className="mr-[4rem] mt-[5rem] ">
+        <div className="mr-[4rem] mt-[5rem]">
           <h1 className="text-2xl font-semibold mb-4">Sign In</h1>
           <form className="container w-[40rem] p-4 border rounded border-black">
             <div className="my-[2rem]">
@@ -67,12 +68,21 @@ const Login = () => {
             <button
               disabled={isLoading}
               type="submit"
-              className="bg-pink-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
+              className="bg-black text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
             >
               {isLoading ? "Signing in..." : "Sign In"}
             </button>
-
+            {isLoading && <Loader />}
           </form>
+           <div className="mt-4">
+            <p className="text-black">
+              New Customer ?{" "}
+              <Link
+                to={redirect ? `/register?redirect=${redirect}` : "/register"}
+                className="text-black-500 hover:underline font-semibold"
+              >Register</Link>
+            </p>
+          </div>
         </div>
       </section>
     </div>
