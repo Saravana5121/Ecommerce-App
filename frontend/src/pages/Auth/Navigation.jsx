@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Navigation.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useLoginMutation } from "../../redux/api/usersApiSlice";
+import { useLogoutMutation } from "../../redux/api/usersApiSlice";
 import { logout } from "../../redux/features/auth/authSlice";
 
 const Navigation = () => {
@@ -34,7 +34,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [logoutApiCall] = useLoginMutation();
+  const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
     try {
@@ -54,12 +54,12 @@ const Navigation = () => {
       } sm:flex xl:flex lg:flex  flex-col justify-between p-2 text-white bg-[#000] w-[4%] hover:w-[15%] h-[100vh] fixed`}
       id="navigation-container"
     >
-      <div className="flex flex-col justify-center space-y-4">
+      <div className="flex flex-col justify-center space-y-4 ">
         <Link
           to="/"
-          className="flex items-center transition-transform transform hover:translate-x-2"
+          className="flex items-center transition-transform transform hover:translate-x-2 "
         >
-          <AiOutlineHome className="mr-2 mt-[3rem]" size={24} />
+          <AiOutlineHome className="mr-2 mt-[3rem] " size={24} />
           <span className="hidden nav-item-name mt-[3rem]">HOME</span>{" "}
         </Link>
         <Link
@@ -91,34 +91,128 @@ const Navigation = () => {
           className="flex items-center text-gray-800 focus:outline-none"
         >
           {userInfo ? (
-            <span className="text-white">{userInfo.username}</span>
+            <span className="text-white p-2">{userInfo.username}</span>
           ) : (
             <></>
           )}
+
+          {userInfo && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-4 w-4 ml-1 ${
+                dropdownOpen ? "transform rotate-180" : ""
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={dropdownOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+              />
+            </svg>
+          )}
         </button>
 
-        <ul>
-          <li>
-            <Link
-              to="/login"
-              className="flex items-center transition-transform transform hover:translate-x-2"
-            >
-              <AiOutlineLogin className="mr-2 mt-[3rem]" size={24} />
-              <span className="hidden nav-item-name mt-[3rem]">LOGIN</span>{" "}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/register"
-              className="flex items-center transition-transform transform hover:translate-x-2"
-            >
-              <AiOutlineUserAdd className="mr-2 mt-[3rem]" size={24} />
-              <span className="hidden nav-item-name mt-[3rem]">
-                REGISTER
-              </span>{" "}
-            </Link>
-          </li>
-        </ul>
+        {dropdownOpen && userInfo && (
+          <ul
+            className={`absolute right-0 mt-2 mr-14 space-y-2 bg-black text-white ${
+              !userInfo.isAdmin ? "-top-20" : "-top-80"
+            } `}
+          >
+            {userInfo.isAdmin && (
+              <>
+                <li>
+                  <Link
+                    to="/admin/dashboard"
+                    className="block px-4 py-2 hover:bg-gray-800"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/productlist"
+                    className="block px-4 py-2 hover:bg-gray-800"
+                  >
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/categorylist"
+                    className="block px-4 py-2 hover:bg-gray-800"
+                  >
+                    Category
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/orderlist"
+                    className="block px-4 py-2 hover:bg-gray-800"
+                  >
+                    Orders
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/userlist"
+                    className="block px-4 py-2 hover:bg-gray-800"
+                  >
+                    Users
+                  </Link>
+                </li>
+              </>
+            )}
+
+            <li>
+              <Link
+                to="/admin/profile"
+                className="block px-4 py-2 hover:bg-gray-800"
+              >
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/logout"
+                onClick={logoutHandler}
+                className="block px-4 py-2 hover:bg-gray-800"
+              >
+                Logout
+              </Link>
+            </li>
+          </ul>
+        )}
+
+        {!userInfo && (
+          <ul>
+            <li>
+              <Link
+                to="/login"
+                className="flex items-center transition-transform transform hover:translate-x-2"
+              >
+                <AiOutlineLogin className="mr-2 mt-[3rem]" size={24} />
+                <span className="hidden nav-item-name mt-[3rem]">
+                  LOGIN
+                </span>{" "}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/register"
+                className="flex items-center transition-transform transform hover:translate-x-2"
+              >
+                <AiOutlineUserAdd className="mr-2 mt-[3rem]" size={24} />
+                <span className="hidden nav-item-name mt-[3rem]">
+                  REGISTER
+                </span>{" "}
+              </Link>
+            </li>
+          </ul>
+        )}
       </div>
     </div>
   );
