@@ -13,6 +13,7 @@ import "./Navigation.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice";
 import { logout } from "../../redux/features/auth/authSlice";
+import { toast } from "react-toastify";
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -54,7 +55,7 @@ const Navigation = () => {
       } sm:flex xl:flex lg:flex  flex-col justify-between p-2 text-white bg-[#000] w-[4%] hover:w-[15%] h-[100vh] fixed`}
       id="navigation-container"
     >
-      <div className="flex flex-col justify-center space-y-4 ">
+      <div className="flex flex-col justify-center space-y-2 ">
         <Link
           to="/"
           className="flex items-center transition-transform transform hover:translate-x-2 "

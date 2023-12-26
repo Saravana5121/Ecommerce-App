@@ -5,6 +5,7 @@ import { useLoginMutation } from "../../redux/api/usersApiSlice";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader";
+import LoginAnimate from "../../components/LoginAnimate";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -28,24 +29,29 @@ const Login = () => {
   }, [navigate, redirect, userInfo]);
 
   const submitHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const res = await login({email, password}).unwrap();
+      const res = await login({ email, password }).unwrap();
       console.log(res);
-      dispatch(setCredentials({...res}))
+      toast.success("Logged in successfully!!");
+      dispatch(setCredentials({ ...res }));
     } catch (error) {
       toast.error(error?.data?.message || error.message);
     }
-  }
-
+  };
 
   return (
     <div>
-      <section className="pl-[20rem] flex flex-wrap">
-        <div className="mr-[4rem] mt-[5rem]">
-          <h1 className="text-2xl font-semibold mb-4">Sign In</h1>
-          <form onSubmit={submitHandler} className="container w-[40rem] p-4 border rounded border-black">
+      <section className="pl-[15rem] flex flex-wrap">
+        <div className="mr-[4rem] mt-[3rem]">
+          <h1 className="text-2xl font-semibold mb-4 p-2 bg-gradient-to-r from-black to-gold-500 text-white rounded pl-[1rem]">
+            Sign In
+          </h1>
+          <form
+            onSubmit={submitHandler}
+            className="container w-[30rem] p-4 border rounded "
+          >
             <div className="my-[2rem]">
               <label
                 htmlFor="email"
@@ -56,7 +62,7 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
-                className="mt-1 p-2 border rounded border-black w-full"
+                className="mt-1 p-2 border rounded w-full"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -72,7 +78,7 @@ const Login = () => {
               <input
                 type="password"
                 id="password"
-                className="mt-1 p-2 border rounded border-black w-full"
+                className="mt-1 p-2 border rounded w-full"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -87,16 +93,19 @@ const Login = () => {
             </button>
             {isLoading && <Loader />}
           </form>
-           <div className="mt-4">
+          <div className="mt-4">
             <p className="text-black">
               New Customer ?{" "}
               <Link
                 to={redirect ? `/register?redirect=${redirect}` : "/register"}
                 className="text-black-500 hover:underline font-semibold"
-              >Register</Link>
+              >
+                Register
+              </Link>
             </p>
           </div>
         </div>
+        <LoginAnimate />
       </section>
     </div>
   );
