@@ -31,6 +31,10 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    if( !email || !password){
+      toast.warning("Kindly fill all the fields!");
+    }
+
     try {
       const res = await login({ email, password }).unwrap();
       console.log(res);
