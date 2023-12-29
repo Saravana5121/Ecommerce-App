@@ -14,7 +14,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "apexcharts": "^3.44.0",
     "axios": "^1.6.2",
-    "flowbite": "^2.2.0",
+    "flowbite": "^2.2.1",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",
     "moment": "^2.29.4",
