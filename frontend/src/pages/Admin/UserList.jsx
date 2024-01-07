@@ -27,6 +27,7 @@ const UserList = () => {
     if (window.confirm("Are you sure??")) {
       try {
         await deleteUser(id);
+        window.location.reload();
       } catch (error) {
         toast.error(error.data.message || error.error);
       }

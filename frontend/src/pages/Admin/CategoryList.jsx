@@ -33,6 +33,9 @@ const CategoryList = () => {
       } else {
         setName("");
         toast.success(`${result.name} is created.`);
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       }
     } catch (error) {
       console.error(error);
@@ -63,6 +66,9 @@ const CategoryList = () => {
         setSelectedCategory(null);
         setUpdatingName("");
         setModalVisible(false);
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       }
     } catch (error) {
       console.error(error);
@@ -79,6 +85,9 @@ const CategoryList = () => {
         toast.success(`${result.name} is deleted.`);
         setSelectedCategory(null);
         setModalVisible(false);
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       }
     } catch (error) {
       console.error(error);
@@ -90,7 +99,9 @@ const CategoryList = () => {
     <div className="ml-[10rem] flex flex-col md:flex-row">
       {/* <AdminMenu /> */}
       <div className="md:w-3/4 p-3">
-        <div className="h-12 ml-3 mt-5 text-2xl font-bold">Manage Categories</div>
+        <div className="h-12 ml-3 mt-5 text-2xl font-bold">
+          Manage Categories
+        </div>
         <CategoryForm
           value={name}
           setValue={setName}

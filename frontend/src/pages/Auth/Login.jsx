@@ -87,7 +87,7 @@ const Login = () => {
                 className="mt-1 p-2 border rounded w-full"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="◾◾◾◾◾◾"
+                placeholder="********"
               />
             </div>
 
