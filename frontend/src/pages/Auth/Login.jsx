@@ -33,6 +33,7 @@ const Login = () => {
 
     if( !email || !password){
       toast.warning("Kindly fill all the fields!");
+      return;
     }
 
     try {
@@ -69,6 +70,7 @@ const Login = () => {
                 className="mt-1 p-2 border rounded w-full"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder="example@gmail.com"
               />
             </div>
 
@@ -85,13 +87,14 @@ const Login = () => {
                 className="mt-1 p-2 border rounded w-full"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="◾◾◾◾◾◾"
               />
             </div>
 
             <button
               disabled={isLoading}
               type="submit"
-              className="bg-black text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
+              className="border bg-black text-white px-4 py-2 rounded cursor-pointer my-[1rem] border border-black hover:bg-cb hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
             >
               {isLoading ? "Signing in..." : "Sign In"}
             </button>
