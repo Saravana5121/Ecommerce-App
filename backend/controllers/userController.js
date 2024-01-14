@@ -55,6 +55,10 @@ const loginUser = asyncHandler(async (req, res) => {
       return; //exit function after the response
     }
   }
+  else {
+    res.status(400);
+    throw new Error("Invalid user data");
+  }
 });
 
 //logoutCurrentUser
@@ -175,5 +179,6 @@ export {
   loginUser,
   logoutCurrentUser,
   updateCurrentUserProfile,
-  updateUserById,
+  updateUserById
 };
+
