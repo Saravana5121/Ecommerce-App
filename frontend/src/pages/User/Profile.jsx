@@ -54,7 +54,7 @@ const Profile = () => {
           </h1>
           <form
             onSubmit={submitHandler}
-            className="w-[28rem] p-4 border rounded"
+            className="p-4 border rounded w-full bg-tlgray"
           >
             <div className="mb-4">
               <label className="block text-md font-medium text-black">
@@ -107,13 +107,13 @@ const Profile = () => {
             <div className="flex justify-between">
               <button
                 type="submit"
-                className="bg-black text-white py-2 px-4 rounded hover:bg-cb hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
+                className="bg-black text-white py-2 px-4 rounded hover:bg-tblue hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
               >
                 Update
               </button>
               <Link
                 to="/user-orders"
-                className="bg-black text-white py-2 px-4 rounded hover:bg-cb hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
+                className="bg-black text-white py-2 px-4 rounded hover:bg-tblue hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
               >
                 My Orders
               </Link>

@@ -18,6 +18,8 @@ export default {
       'bermuda': '#78dcca',
       'cred': '#dc2626',
       'cb': '#1d4ed8',
+      'tblue': '#1D9BF0',
+      'tlgray': '#f0f0f0',
     },
   },
   plugins: [flowbitePlugin],

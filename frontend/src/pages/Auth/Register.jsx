@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../components/Loader";
-import { setCredentials } from "../../redux/features/auth/authSlice";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useRegisterMutation } from "../../redux/api/usersApiSlice";
+import Loader from "../../components/Loader";
 import RegAnimate from "../../components/RegAnimate";
+import { useRegisterMutation } from "../../redux/api/usersApiSlice";
+import { setCredentials } from "../../redux/features/auth/authSlice";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -60,7 +60,7 @@ const Register = () => {
 
         <form
           onSubmit={submitHandler}
-          className="container w-[30rem] p-4 border rounded "
+          className="container w-[30rem] p-4 border rounded bg-tlgray"
         >
           <div className="my-[2rem]">
             <label
@@ -75,6 +75,7 @@ const Register = () => {
               className="mt-1 p-2 border rounded w-full"
               value={username}
               onChange={(e) => setUserName(e.target.value)}
+              placeholder="Username"
             />
           </div>
           <div className="my-[2rem]">
@@ -90,6 +91,7 @@ const Register = () => {
               className="mt-1 p-2 border rounded w-full"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="username@gmail.com"
             />
           </div>
           <div className="my-[2rem]">
@@ -105,6 +107,7 @@ const Register = () => {
               className="mt-1 p-2 border rounded w-full"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="********"
             />
           </div>
           <div className="my-[2rem]">
@@ -120,12 +123,13 @@ const Register = () => {
               className="mt-1 p-2 border rounded w-full"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Re-type Password"
             />
           </div>
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-black text-white px-4 py-2 rounded cursor-pointer my-[1rem] border hover:bg-cb hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
+            className="bg-black text-white px-4 py-2 rounded cursor-pointer my-[1rem] border hover:bg-tblue hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
           >
             {isLoading ? "Registering..." : "Register"}
           </button>
@@ -137,7 +141,7 @@ const Register = () => {
             Already have an account?{" "}
             <Link
               to={redirect ? `/login?redirect=${redirect}` : "/login"}
-              className="text-black hover:underline"
+              className="text-tblue hover:underline"
             >
               Login
             </Link>

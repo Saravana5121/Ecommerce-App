@@ -6,7 +6,7 @@ const CategoryForm = ({
   handleDelete,
 }) => {
   return (
-    <div className="p-3">
+    <div className="p-3 bg-tlgray rounded-lg">
       <form onSubmit={handleSubmit} className="space-y-3">
         <input
           type="text"
@@ -16,7 +16,7 @@ const CategoryForm = ({
           onChange={(e) => setValue(e.target.value)}
         />
         <div className="flex justify-between">
-          <button className="bg-black text-white py-2 px-4 rounded-lg hover:bg-cb focus:outline-none focus:ring-2 focus:ring-cb focus:ring-opacity-50">
+          <button className="bg-black text-white py-2 px-4 rounded-lg hover:bg-tblue focus:outline-none focus:ring-2 focus:ring-tblue focus:ring-opacity-50">
             {buttonText}
           </button>
           {handleDelete && (

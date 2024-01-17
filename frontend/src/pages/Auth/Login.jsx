@@ -50,12 +50,12 @@ const Login = () => {
     <div>
       <section className="pl-[15rem] flex flex-wrap">
         <div className="mr-[4rem] mt-[3rem]">
-          <h1 className="text-2xl font-semibold mb-4 p-2 bg-gradient-to-r from-black to-gold-500 text-white rounded pl-[1rem]">
+          <h1 className="text-2xl font-semibold mb-4 p-2 bg-gradient-to-r from-black to-gold-500 text-white rounded pl-[1rem] ">
             Sign In
           </h1>
           <form
             onSubmit={submitHandler}
-            className="container w-[30rem] p-4 border rounded "
+            className="container w-[30rem] p-4 border rounded bg-gray-100"
           >
             <div className="my-[2rem]">
               <label
@@ -70,7 +70,7 @@ const Login = () => {
                 className="mt-1 p-2 border rounded w-full"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="example@gmail.com"
+                placeholder="username@gmail.com"
               />
             </div>
 
@@ -94,7 +94,7 @@ const Login = () => {
             <button
               disabled={isLoading}
               type="submit"
-              className="border bg-black text-white px-4 py-2 rounded cursor-pointer my-[1rem] border border-black hover:bg-cb hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
+              className=" bg-black text-white px-4 py-2 rounded cursor-pointer my-[1rem] border border-black hover:bg-tblue hover:text-white transition duration-200 font-semibold hover:shadow-2xl"
             >
               {isLoading ? "Signing in..." : "Sign In"}
             </button>
@@ -105,7 +105,7 @@ const Login = () => {
               New Customer ?{" "}
               <Link
                 to={redirect ? `/register?redirect=${redirect}` : "/register"}
-                className="text-black-500 hover:underline font-semibold"
+                className="text-tblue hover:underline"
               >
                 Register
               </Link>
