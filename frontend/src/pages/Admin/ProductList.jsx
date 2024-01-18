@@ -23,6 +23,33 @@ const ProductList = () => {
   const [createProduct] = useCreateProductMutation();
   const { data: categories } = useFetchCategoriesQuery();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const productData = new FormData();
+      productData.append("image", image);
+      productData.append("name", name);
+      productData.append("description", description);
+      productData.append("price", price);
+      productData.append("category", category);
+      productData.append("quantity", quantity);
+      productData.append("brand", brand);
+      productData.append("countInStock", stock);
+
+      const { data } = await createProduct(productData);
+
+      if (data.error) {
+        toast.error("Product create failed. Try again");
+      } else {
+        toast.success(`${data.name} is created`);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Product create failed. Try again");
+    }
+  };
+
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
@@ -131,7 +158,7 @@ const ProductList = () => {
             <div className="flex flex-wrap">
               <div>
                 <label htmlFor="name block" className="font-semibold">
-                  Count In Stack
+                  Count In Stock
                 </label>
                 <br />
                 <input
@@ -161,7 +188,7 @@ const ProductList = () => {
             </div>
             <div className="flex flex-end">
               <button
-                //onClick={handleSubmit}
+                onClick={handleSubmit}
                 className="py-4 px-10 rounded-lg text-lg text-white font-semibold bg-black hover:bg-tblue"
               >
                 Submit
