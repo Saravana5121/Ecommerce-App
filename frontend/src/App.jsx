@@ -11,11 +11,10 @@ function App() {
       <Navigation />
       <main className="py-3">
         <Logo
-          src="/src/assets/ex-white.png"
+          src="/src/assets/final-logo.png"
           alt="Logo"
           className=" flex items-center justify-center h-20"
         />
-        <hr></hr>
         <Outlet />
       </main>
     </>
