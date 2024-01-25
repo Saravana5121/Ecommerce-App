@@ -6,6 +6,8 @@ import {
   useUploadProductImageMutation,
 } from "../../redux/api/productApiSlice";
 import { toast } from "react-toastify";
+import AdminMenu from "./AdminMenu";
+
 
 const ProductList = () => {
   const [image, setImage] = useState("");
@@ -67,7 +69,7 @@ const ProductList = () => {
   return (
     <div className="ml-[10rem]">
       <div className="flex flex-col md:flex-row">
-        {/* Admin Menu */}
+        <AdminMenu />
         <div className="md-3/4 p-3">
           <div className="ml-3 mt-3 text-xl font-bold">Create Product</div>
           {imageUrl && (
