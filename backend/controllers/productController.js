@@ -3,7 +3,8 @@ import Product from "../models/productModel.js";
 
 const addProduct = asyncHandler(async (req, res) => {
   try {
-    const { name, description, price, category, quantity, brand, image } = req.fields;
+    const { name, description, price, category, quantity, brand, image } =
+      req.fields;
 
     // Validation
     switch (true) {
@@ -34,7 +35,8 @@ const addProduct = asyncHandler(async (req, res) => {
 
 const updateProductDetails = asyncHandler(async (req, res) => {
   try {
-    const { name, description, price, category, quantity, brand, image } = req.fields;
+    const { name, description, price, category, quantity, brand, image } =
+      req.fields;
 
     // Validation
     switch (true) {
@@ -198,7 +200,7 @@ const fetchNewProducts = asyncHandler(async (req, res) => {
   }
 });
 
-{/*const filterProducts = asyncHandler(async (req, res) => {
+const filterProducts = asyncHandler(async (req, res) => {
   try {
     const { checked, radio } = req.body;
 
@@ -212,9 +214,17 @@ const fetchNewProducts = asyncHandler(async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Server Error" });
   }
-});*/}
+});
 
 export {
-  addProduct, addProductReview, fetchAllProducts, fetchNewProducts, fetchProductById, fetchProducts, fetchTopProducts, removeProduct, updateProductDetails
+  addProduct,
+  updateProductDetails,
+  removeProduct,
+  fetchProducts,
+  fetchProductById,
+  fetchAllProducts,
+  addProductReview,
+  fetchTopProducts,
+  fetchNewProducts,
+  filterProducts,
 };
-
