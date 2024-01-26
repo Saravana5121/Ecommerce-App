@@ -26,7 +26,7 @@ const AdminProductUpdate = () => {
   const [category, setCategory] = useState(productData?.category || "");
   const [quantity, setQuantity] = useState(productData?.quantity || "");
   const [brand, setBrand] = useState(productData?.brand || "");
-  const [stock, setStock] = useState(productData?.countInStock);
+  const [countInStock, setCountInStock] = useState(productData?.countInStock);
 
   // hook
   const navigate = useNavigate();
@@ -51,6 +51,7 @@ const AdminProductUpdate = () => {
       setQuantity(productData.quantity);
       setBrand(productData.brand);
       setImage(productData.image);
+      setCountInStock(productData.countInStock);
     }
   }, [productData]);
 
@@ -83,7 +84,7 @@ const AdminProductUpdate = () => {
       formData.append("category", category);
       formData.append("quantity", quantity);
       formData.append("brand", brand);
-      formData.append("countInStock", stock);
+      formData.append("countInStock", countInStock);
 
       // Update product using the RTK Query mutation
       const data = await updateProduct({ productId: params._id, formData });
@@ -233,8 +234,8 @@ const AdminProductUpdate = () => {
                 <input
                   type="text"
                   className="p-4 mb-3 w-[30rem] border rounded-lg bg-tlgray"
-                  value={stock}
-                  onChange={(e) => setStock(e.target.value)}
+                  value={countInStock}
+                  onChange={(e) => setCountInStock(e.target.value)}
                 />
               </div>
               <div className="ml-10">

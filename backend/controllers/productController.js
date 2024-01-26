@@ -35,7 +35,7 @@ const addProduct = asyncHandler(async (req, res) => {
 
 const updateProductDetails = asyncHandler(async (req, res) => {
   try {
-    const { name, description, price, category, quantity, brand, image } =
+    const { name, description, price, category, quantity, brand, image, countInStock } =
       req.fields;
 
     // Validation
@@ -54,6 +54,8 @@ const updateProductDetails = asyncHandler(async (req, res) => {
         return res.json({ error: "Quantity is required" });
       case !image:
         return res.json({ error: "Image is required" });
+      case !countInStock:
+        return res.json({ error: "countInStock is required" });
     }
 
     const product = await Product.findByIdAndUpdate(
