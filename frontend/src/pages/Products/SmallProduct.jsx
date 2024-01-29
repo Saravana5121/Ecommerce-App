@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const SmallProduct = ({ product }) => {
   return (
-    <div className="w-[20rem] h-[20rem] ml-[2rem] p-3 border">
+    <div className="w-[15rem] h-[17rem] ml-[2rem] p-2 border rounded-md">
       <div className="relative">
         <img
           src={product.image}
           alt={product.name}
-          className="block mx-auto max-h-[200px]"
+          className="block mx-auto h-[200px]"
         />
         {/* <HeartIcon product={product} /> */}
       </div>
@@ -17,7 +17,7 @@ const SmallProduct = ({ product }) => {
         <Link to={`/product/${product._id}`}>
           <h2 className="flex justify-between items-center">
             <div>{product.name}</div>
-            <span className="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300">
+            <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
               ${product.price}
             </span>
           </h2>
