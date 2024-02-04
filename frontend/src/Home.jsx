@@ -19,18 +19,20 @@ const Home = () => {
           {isError?.data.message || isError.error}
         </Message>
       ) : (
-        <>
+        <div className="bg-black bg-opacity-90 mb-[2rem] rounded-tr-[20rem]">
           <div className="flex justify-between items-center">
-            <h1 className="ml-[15rem] mt-[5rem] text-[3rem]">
+            <h1 className="ml-[15rem] mt-[5rem] text-[3rem] text-white">
               Special Products
             </h1>
             <Link
               to="/shop"
-              className="bg-black font-bold rounded-lg py-2 px-10 mr-[15rem] mt-[5rem] text-white hover:bg-tblue"
+              className="bg-white font-bold rounded-lg py-2 px-10 mr-[15rem] mt-[5rem] text-black hover:bg-tblue hover:text-white"
             >
               Shop
             </Link>
-            <div className="flex flex-wrap justify-center mt-[2rem]">
+          </div>
+          <div>
+            <div className="flex flex-wrap ml-[8rem] mr-[6rem] mt-[2rem]">
               {data.products.map((product) => (
                 <div key={product._id}>
                   <Product product={product} />
@@ -38,7 +40,7 @@ const Home = () => {
               ))}
             </div>
           </div>
-        </>
+        </div>
       )}
     </>
   );

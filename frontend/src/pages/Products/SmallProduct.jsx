@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SmallProduct = ({ product }) => {
   return (
-    <div className="w-[15rem] h-[17rem] ml-[2rem] p-2 border rounded-md">
+    <div className="w-[17rem] h-[17rem] ml-[2rem] p-2 border rounded-md">
       <div className="relative">
         <img
           src={product.image}
