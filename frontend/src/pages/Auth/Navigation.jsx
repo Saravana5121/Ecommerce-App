@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice";
 import { logout } from "../../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
+import FavoritesCount from "../Products/FavoritesCount";
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -78,11 +79,12 @@ const Navigation = () => {
           <span className="hidden nav-item-name mt-[3rem]">CART</span>{" "}
         </Link>
         <Link
-          to="/favourite"
+          to="/favorite"
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
           <FaHeart className="mr-2 mt-[3rem]" size={24} />
           <span className="hidden nav-item-name mt-[3rem]">FAVOURITE</span>{" "}
+          <FavoritesCount />
         </Link>
       </div>
 
@@ -169,10 +171,7 @@ const Navigation = () => {
             )}
 
             <li>
-              <Link
-                to="/profile"
-                className="block px-4 py-2 hover:bg-gray-800"
-              >
+              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-800">
                 Profile
               </Link>
             </li>

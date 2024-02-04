@@ -15,18 +15,18 @@ const Home = () => {
       {isLoading ? (
         <Loader />
       ) : isError ? (
-        <Message variant="danger">
-          {isError?.data.message || isError.error}
-        </Message>
+      <Message variant="danger">
+      {isError?.data.message || isError.error}
+      </Message>
       ) : (
-        <div className="bg-black bg-opacity-90 mb-[2rem] rounded-tr-[20rem]">
+        <div className="bg-gradient-to-l from-gray-500 to-gray-800 bg-opacity-90 mb-[2rem] rounded-tr-[20rem]">
           <div className="flex justify-between items-center">
-            <h1 className="ml-[15rem] mt-[5rem] text-[3rem] text-white">
+            <h1 className="ml-[15rem] mt-[5rem] text-[3rem] hover:text-white bg-gradient-to-r from-blue-500 to-silver text-transparent bg-clip-text">
               Special Products
             </h1>
             <Link
               to="/shop"
-              className="bg-white font-bold rounded-lg py-2 px-10 mr-[15rem] mt-[5rem] text-black hover:bg-tblue hover:text-white"
+              className=" font-bold rounded-lg py-2 px-10 mr-[15rem] mt-[5rem]  text-black bg-gradient-to-t from-blue-500 to-silver transition duration-300 ease-in-out"
             >
               Shop
             </Link>
