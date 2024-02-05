@@ -26,7 +26,7 @@ const Home = () => {
             </h1>
             <Link
               to="/shop"
-              className=" font-bold rounded-lg py-2 px-10 mr-[15rem] mt-[5rem]  text-black bg-gradient-to-t from-blue-500 to-silver transition duration-300 ease-in-out"
+              className=" font-bold rounded-lg py-2 px-10 mr-[15rem] mt-[5rem]  text-black bg-gradient-to-t from-blue-500 to-silver transition duration-300 ease-in-out "
             >
               Shop
             </Link>
