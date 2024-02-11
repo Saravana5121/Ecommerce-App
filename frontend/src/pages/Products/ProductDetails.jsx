@@ -14,18 +14,17 @@ import {
   FaShoppingCart,
   FaStar,
   FaStore,
-  FaBackward,
 } from "react-icons/fa";
 import moment from "moment";
 import HeartIcon from "./HeartIcon";
-//import Ratings from "./Ratings";
-//import ProductTabs from "./ProductTabs";
+import Ratings from "./Ratings";
+import ProductTabs from "./ProductTabs";
 // import { addToCart } from "../../redux/features/cart/cartSlice";
 
 const ProductDetails = () => {
   const { id: productId } = useParams();
   const navigate = useNavigate();
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
@@ -74,11 +73,11 @@ const ProductDetails = () => {
         </Message>
       ) : (
         <>
-          <div className="flex flex-wrap relative items-between mt-[2rem] ml-[10rem] rounded-xl w-[60rem] p-8 shadow-lg shadow-gray-400">
-            <div className="mb-[2rem]">
+          <div className="flex flex-wrap relative items-between mt-[2rem] ml-[7rem] rounded-xl p-8 shadow-lg shadow-gray-400 mb-5">
+            <div className="mr-[1rem]">
               <Link
                 to="/"
-                className="text-white hover:bg-tblue font-semibold bg-black px-2 py-2 rounded-lg"
+                className="text-black  font-semibold px-2 py-2 rounded-lg"
               >
                 Go back
               </Link>
@@ -87,13 +86,13 @@ const ProductDetails = () => {
               <img
                 src={product.image}
                 alt={product.name}
-                className="xl:w-[50rem] lg:w-[45rem] md:w-[30rem] sm:w-[20rem] mr-[2rem]"
+                className="xl:w-[30rem] lg:w-[30rem] md:w-[30rem] sm:w-[20rem] mr-[2rem] rounded-xl mt-10"
               />
 
               <HeartIcon product={product} />
             </div>
 
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-between mt-7">
               <h2 className="text-2xl font-semibold">{product.name}</h2>
               <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-[#B0B0B0]">
                 {product.description}
@@ -132,11 +131,11 @@ const ProductDetails = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between flex-wrap">
-                {/* <Ratings
+              <div className="flex justify-between flex-wrap mb-5">
+                <Ratings
                   value={product.rating}
                   text={`${product.numReviews} reviews`}
-                /> */}
+                />
 
                 {product.countInStock > 0 && (
                   <div>
@@ -155,18 +154,18 @@ const ProductDetails = () => {
                 )}
               </div>
 
-              {/* <div className="btn-container">
+              <div className="btn-container">
                 <button
                   // onClick={addToCartHandler}
                   disabled={product.countInStock === 0}
-                  className="bg-pink-600 text-white py-2 px-4 rounded-lg mt-4 md:mt-0"
+                  className="bg-black hover:bg-tblue text-white py-2 px-4 rounded-lg mt-4 md:mt-0"
                 >
                   Add To Cart
                 </button>
-              </div> */}
+              </div>
             </div>
 
-            {/* <div className="mt-[5rem] container flex flex-wrap items-start justify-between ml-[10rem]">
+            <div className="mt-[5rem] container flex flex-wrap items-start justify-between ml-[5rem]">
               <ProductTabs
                 loadingProductReview={loadingProductReview}
                 userInfo={userInfo}
@@ -177,7 +176,7 @@ const ProductDetails = () => {
                 setComment={setComment}
                 product={product}
               />
-            </div> */}
+            </div>
           </div>
         </>
       )}
