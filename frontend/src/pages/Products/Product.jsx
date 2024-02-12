@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import HeartIcon from "./HeartIcon";
 
-const SmallProduct = ({ product }) => {
+const Product = ({ product }) => {
   return (
     <div className="w-[20rem] h-[17rem] ml-[2rem] border rounded-md mb-6 bg-white p-4 hover:bg-opacity-25 hover:backdrop-blur-sm hover:shadow-lg transition duration-300 ease-in-out shadow-inner shadow-silver">
       <div className="relative">
@@ -26,4 +26,4 @@ const SmallProduct = ({ product }) => {
   );
 };
 
-export default SmallProduct;
+export default Product;
