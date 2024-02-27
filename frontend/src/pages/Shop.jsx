@@ -8,7 +8,7 @@ import {
   setChecked,
 } from "../redux/features/shop/shopSlice";
 import Loader from "../components/Loader";
-// import ProductCard from "./Products/ProductCard";
+import ProductCard from "./Products/ProductCard";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -162,14 +162,16 @@ const Shop = () => {
           </div>
 
           <div className="p-5 mt-5">
-            <h2 className="h4 w-[10rem] text-center p-1 border rounded-lg bg-tlgray text-black mb-2">{products?.length} Products</h2>
-            <div className="flex flex-wrap">
+            <h2 className="h4 w-[10rem] text-center p-1 border rounded-lg bg-tlgray text-black mb-2">
+              {products?.length} Products
+            </h2>
+            <div className="flex flex-wrap justify-center">
               {products.length === 0 ? (
                 <Loader />
               ) : (
                 products?.map((p) => (
                   <div className="p-3" key={p._id}>
-                    {/* <ProductCard p={p} /> */}
+                    <ProductCard p={p} />
                   </div>
                 ))
               )}
