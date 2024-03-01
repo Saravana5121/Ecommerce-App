@@ -7,10 +7,10 @@ import path from "path";
 //utils
 import connectDB from "./config/db.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import orderRoutes from "./routes/orderRoutes.js";
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -28,6 +28,10 @@ app.use("/api/category", categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/orders", orderRoutes);
+
+app.get("/api/config/paypal", (req, res) => {
+    res.send({ clientId: process.env.PAYPAL_CLIENT_ID });
+  });
 
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname + "/uploads")));
