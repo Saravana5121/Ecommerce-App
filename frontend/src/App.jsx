@@ -13,8 +13,9 @@ function App() {
         <Logo
           src="/src/assets/final-logo.png"
           alt="Logo"
-          className=" flex items-center justify-center h-20"
+          className="flex items-center justify-center h-20"
         />
+        <hr className="mt-[2rem]"/>
         <Outlet />
       </main>
     </>
