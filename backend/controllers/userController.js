@@ -54,6 +54,10 @@ const loginUser = asyncHandler(async (req, res) => {
       });
       return; //exit function after the response
     }
+    else{
+      res.status(400)
+      throw new Error("Password is Incorrect")
+    }
   }
   else {
     res.status(400);
