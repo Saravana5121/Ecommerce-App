@@ -57,7 +57,7 @@ const AllProducts = () => {
                         >
                           Update Product
                         </Link>
-                        <p>₹ {product?.price}</p>
+                        <p>$ {product?.price}</p>
                       </div>
                     </div>
                   </div>
