@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import AdminMenu from "./AdminMenu";
 import OrderList from "./OrderList";
 import Loader from "../../components/Loader";
+import { AiOutlineBook, AiOutlineMoneyCollect, AiOutlineOrderedList, AiOutlineUser } from "react-icons/ai";
 
 const AdminDashboard = () => {
   const { data: sales, isLoading } = useGetTotalSalesQuery();
@@ -20,12 +21,12 @@ const AdminDashboard = () => {
   const [state, setState] = useState({
     options: {
       chart: {
-        type: "pie",
+        type: "line",
       },
       tooltip: {
-        theme: "light",
+        theme: "dark",
       },
-      colors: ["#00E396"],
+      colors: ["#22d3ee"],
       dataLabels: {
         enabled: true,
       },
@@ -93,10 +94,10 @@ const AdminDashboard = () => {
       <AdminMenu />
 
       <section className="xl:ml-[4rem] md:ml-[0rem]">
-        <div className="w-[80%] flex justify-around flex-wrap">
-          <div className="rounded-lg border bg-white p-5 w-[20rem] mt-5">
-            <div className="font-bold rounded-full w-[3rem] bg-blue-500 text-white text-center p-3">
-              $
+        <div className="w-[80%] flex justify-around items-center flex-wrap">
+          <div className="rounded-lg p-5 w-[20rem] mt-5 border">
+            <div className="font-bold rounded-full w-[3rem] bg-blue-200 text-center p-3">
+            <AiOutlineMoneyCollect className="" size={24} />
             </div>
 
             <p className="mt-5">Sales</p>
@@ -104,9 +105,9 @@ const AdminDashboard = () => {
               $ {isLoading ? <Loader /> : sales.totalSales.toFixed(2)}
             </h1>
           </div>
-          <div className="rounded-lg border bg-white p-5 w-[20rem] mt-5">
-            <div className="font-bold rounded-full w-[3rem] bg-blue-500 text-white text-center p-3">
-              $
+          <div className="border rounded-lg p-5 w-[20rem] mt-5">
+            <div className="font-bold rounded-full w-[3rem] bg-blue-200 text-center p-3">
+            <AiOutlineUser className="" size={24} />
             </div>
 
             <p className="mt-5">Customers</p>
@@ -114,9 +115,9 @@ const AdminDashboard = () => {
               $ {isLoading ? <Loader /> : customers?.length}
             </h1>
           </div>
-          <div className="rounded-lg border bg-white p-5 w-[20rem] mt-5">
-            <div className="font-bold rounded-full w-[3rem] bg-blue-500 text-white text-center p-3">
-              $
+          <div className="border rounded-lg p-5 w-[20rem] mt-5">
+            <div className="font-bold rounded-full w-[3rem] bg-blue-200 text-center p-3">
+            <AiOutlineBook className="" size={24} />
             </div>
 
             <p className="mt-5">All Orders</p>
@@ -126,11 +127,11 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        <div className="ml-[10rem] mt-[4rem]">
+        <div className="ml-[6rem] mt-[4rem]">
           <Chart
             options={state.options}
             series={state.series}
-            type="pie"
+            type="bar"
             width="70%"
           />
         </div>
