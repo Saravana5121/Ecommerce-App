@@ -23,7 +23,7 @@ const Search = ({ handleSearch }) => {
       />
       <button
         onClick={handleClick}
-        className= "bg-black hover:bg-gradient-to-r from-gray-500 to-gray-700 focus:ring-4 focus:ring-blue-300 text-white py-3 px-4 rounded-r"
+        className= "bg-black hover:bg-gradient-to-r from-gray-500 to-gray-700 focus:ring-4 focus:ring-black text-white py-3 px-4 rounded-r"
       >
         <FaSearch />
       </button>
