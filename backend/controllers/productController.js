@@ -35,8 +35,16 @@ const addProduct = asyncHandler(async (req, res) => {
 
 const updateProductDetails = asyncHandler(async (req, res) => {
   try {
-    const { name, description, price, category, quantity, brand, image, countInStock } =
-      req.fields;
+    const {
+      name,
+      description,
+      price,
+      category,
+      quantity,
+      brand,
+      image,
+      countInStock,
+    } = req.fields;
 
     // Validation
     switch (true) {
@@ -114,6 +122,23 @@ const fetchProducts = asyncHandler(async (req, res) => {
 const fetchProductById = asyncHandler(async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
+    if (product) {
+      return res.json(product);
+    } else {
+      res.status(404);
+      throw new Error("Product not found");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({ error: "Product not found" });
+  }
+});
+
+const fetchProductByName = asyncHandler(async (req, res) => {
+  try {
+    const productName = req.params.name;
+    const product = await Product.findOne({ name: productName });
+
     if (product) {
       return res.json(product);
     } else {
@@ -229,5 +254,5 @@ export {
   fetchTopProducts,
   fetchNewProducts,
   filterProducts,
+  fetchProductByName,
 };
-  

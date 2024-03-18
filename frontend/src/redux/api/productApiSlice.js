@@ -19,6 +19,13 @@ export const productApiSlice = apiSlice.injectEndpoints({
       ],
     }),
 
+    getProductByName: builder.query({
+      query: (productName) => `${PRODUCT_URL}/search/${productName}`,
+      providesTags: (result, error, productName) => [
+        { type: "Product", id: productName },
+      ],
+    }),
+
     allProducts: builder.query({
       query: () => `${PRODUCT_URL}/allProducts`,
     }),
@@ -93,6 +100,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetProductByIdQuery,
+  useGetProductByNameQuery,
   useGetProductsQuery,
   useGetProductDetailsQuery,
   useAllProductsQuery,
