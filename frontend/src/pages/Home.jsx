@@ -8,6 +8,7 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import ProductCarousel from "../pages/Products/ProductCarousel";
+import Search from "../components/Search";
 
 const Home = () => {
   const { keyword } = useParams();
@@ -15,6 +16,7 @@ const Home = () => {
 
   return (
     <>
+      <Search />
       <Banner />
       <Hero />
       {!keyword ? <Header /> : null}
@@ -34,7 +36,6 @@ const Home = () => {
                   Special Products
                 </h1>
               </div>
-              
             </div>
             <div>
               <div className="flex flex-wrap ml-[8rem] mr-[6rem] mt-[2rem]">
