@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <>
-      <Search />
+      {/* <Search /> */}
       <Banner />
       <Hero />
       {!keyword ? <Header /> : null}
