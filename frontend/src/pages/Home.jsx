@@ -8,7 +8,8 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import ProductCarousel from "../pages/Products/ProductCarousel";
-import Search from "../components/Search";
+// import Search from "../components/Search";
+import GIFBanner1 from "../components/GIFBanner1";
 
 const Home = () => {
   const { keyword } = useParams();
@@ -29,6 +30,7 @@ const Home = () => {
       ) : (
         <>
           <ProductCarousel />
+          <GIFBanner1 />
           <div className="bg-gray-800 mb-[2rem] rounded-tr-[20rem] p-5">
             <div className="flex flex-col justify-center items-center p-5">
               <div>
