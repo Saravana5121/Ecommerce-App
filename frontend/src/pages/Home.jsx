@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useGetProductsQuery } from "../redux/api/productApiSlice";
-import Loader from "../components/Loader";
-import Header from "../components/Header";
-import Message from "../components/Message";
-import Product from "./Products/Product";
-import Hero from "../components/Hero";
-import Footer from "../components/Footer";
 import Banner from "../components/Banner";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 import ProductCarousel from "../pages/Products/ProductCarousel";
+import { useGetProductsQuery } from "../redux/api/productApiSlice";
+import Product from "./Products/Product";
 // import Search from "../components/Search";
 import GIFBanner1 from "../components/GIFBanner1";
 
@@ -30,7 +30,6 @@ const Home = () => {
       ) : (
         <>
           <ProductCarousel />
-          <GIFBanner1 />
           <div className="bg-gray-800 mb-[2rem] rounded-tr-[20rem] p-5">
             <div className="flex flex-col justify-center items-center p-5">
               <div>
@@ -49,6 +48,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <GIFBanner1 />
           <Footer />
         </>
       )}
