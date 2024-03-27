@@ -64,7 +64,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <>
+    <div className="flex justify-center">
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -73,7 +73,7 @@ const ProductDetails = () => {
         </Message>
       ) : (
         <>
-          <div className="flex flex-wrap relative items-between mt-[2rem] ml-[7rem] rounded-xl p-8 shadow-lg shadow-gray-400 mb-5">
+          <div className="flex flex-wrap relative items-between mt-[2rem] ml-[5rem] rounded-xl p-8 shadow-lg shadow-gray-400 mb-5">
             <div className="mr-[1rem]">
               <Link
                 to="/"
@@ -180,7 +180,7 @@ const ProductDetails = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 
