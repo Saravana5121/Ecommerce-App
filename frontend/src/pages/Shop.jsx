@@ -138,7 +138,7 @@ const Shop = () => {
             </div>
 
             <h2 className="h4 text-center py-2 text-white bg-black rounded-lg mb-2">
-              Filer by Price
+              Filter by Price
             </h2>
 
             <div className="p-5 w-[15rem]">

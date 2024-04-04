@@ -10,6 +10,7 @@ import { useGetProductsQuery } from "../redux/api/productApiSlice";
 import Product from "./Products/Product";
 // import Search from "../components/Search";
 import GIFBanner1 from "../components/GIFBanner1";
+import ProductSearch from "../components/ProductSearch";
 
 const Home = () => {
   const { keyword } = useParams();
@@ -18,6 +19,7 @@ const Home = () => {
   return (
     <>
       {/* <Search /> */}
+      <ProductSearch />
       <Banner />
       <Hero />
       {!keyword ? <Header /> : null}
