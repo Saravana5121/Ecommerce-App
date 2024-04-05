@@ -137,7 +137,8 @@ const fetchProductById = asyncHandler(async (req, res) => {
 const fetchProductByName = asyncHandler(async (req, res) => {
   try {
     const productName = req.params.name;
-    const product = await Product.findOne({ name: productName });
+    const regex = new RegExp(productName, "i");
+    const product = await Product.findOne({ name: { $regex: regex } });
 
     if (product) {
       return res.json(product);
@@ -147,7 +148,7 @@ const fetchProductByName = asyncHandler(async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.status(404).json({ error: "Product not found" });
+    res.status(404).json({ error: "Produt not found" });
   }
 });
 
@@ -244,15 +245,6 @@ const filterProducts = asyncHandler(async (req, res) => {
 });
 
 export {
-  addProduct,
-  updateProductDetails,
-  removeProduct,
-  fetchProducts,
-  fetchProductById,
-  fetchAllProducts,
-  addProductReview,
-  fetchTopProducts,
-  fetchNewProducts,
-  filterProducts,
-  fetchProductByName,
+  addProduct, addProductReview, fetchAllProducts, fetchNewProducts, fetchProductById, fetchProductByName, fetchProducts, fetchTopProducts, filterProducts, removeProduct, updateProductDetails
 };
+

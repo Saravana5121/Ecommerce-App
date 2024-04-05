@@ -1,4 +1,4 @@
-import axios from "axios"; // Import Axios for making HTTP requests
+import axios from "axios";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Product from "../pages/Products/Product";
@@ -17,10 +17,10 @@ const SearchBox = () => {
     try {
       const response = await axios.get(`/api/products/search/${searchTerm}`);
       setSearchResult(response.data);
-      setError(null); // Clear previous errors if any
+      setError(null);
     } catch (error) {
-      setSearchResult(null); // Clear previous search results if any
-      setError(error.response.data.error || "Something went wrong"); // Set error message
+      setSearchResult(null);
+      setError(error.response.data.error || "Something went wrong");
     }
   };
 
@@ -44,10 +44,11 @@ const SearchBox = () => {
         </form>
       </div>
 
-      {error && <p className="text-red-600 font-semibold animate-pulse">{error}</p>}
+      {error && (
+        <p className="text-red-600 font-semibold animate-pulse">{error}</p>
+      )}
       {searchResult && (
         <div className="flex mt-2">
-          {/* Add more details of the product if needed */}
           <Product product={searchResult} />
         </div>
       )}
